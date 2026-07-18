@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Your Result</h2>
+
+  <div class="risk-badge risk-{{ risk_level|lower }}">
+    {{ risk_level }} risk
+  </div>
+
+  <h3>Model confidence</h3>
+  <ul class="prob-list">
+    {% for label, pct in probabilities.items() %}
+      <li>
+        <span>{{ label }}</span>
+        <div class="bar-track">
+          <div class="bar-fill risk-{{ label|lower }}" style="width: {{ pct }}%"></div>
+        </div>
+        <span>{{ pct }}%</span>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3>Suggestions</h3>
+  <ul>
+    {% for tip in suggestions %}
+      <li>{{ tip }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="/" class="button-link">← Take the check-in again</a>
+</div>
+{% endblock %}

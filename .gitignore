@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Flask
+instance/
+*.log
+
+# Generated data & trained model artifacts (reproducible via scripts, see README)
+data/survey_data.csv
+model/*.pkl
+model/*.png
+model/metrics.txt

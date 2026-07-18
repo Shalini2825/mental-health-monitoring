@@ -1,0 +1,140 @@
+:root {
+  --bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --primary: #4c6fff;
+  --low: #2ecc71;
+  --moderate: #f5a623;
+  --high: #e74c3c;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  background: linear-gradient(135deg, #4c6fff, #7b5cff);
+  color: white;
+  padding: 32px 0;
+}
+
+.header-inner h1 {
+  margin: 0 0 4px 0;
+  font-size: 1.7rem;
+}
+
+.tagline {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 28px 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.muted { color: var(--muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 20px 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: var(--muted);
+  gap: 6px;
+}
+
+input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d8dce6;
+  font-size: 1rem;
+}
+
+button, .button-link {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.error {
+  color: var(--high);
+  font-weight: 600;
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.risk-low { background: var(--low); }
+.risk-moderate { background: var(--moderate); }
+.risk-high { background: var(--high); }
+
+.prob-list {
+  list-style: none;
+  padding: 0;
+}
+
+.prob-list li {
+  display: grid;
+  grid-template-columns: 90px 1fr 50px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.bar-track {
+  background: #eceef3;
+  border-radius: 6px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+}
+
+.site-footer {
+  padding: 24px 0 40px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+}

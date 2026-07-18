@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h2>Daily Wellbeing Check-In</h2>
+  <p class="muted">
+    Answer a few quick questions about your lifestyle. Our machine learning model
+    will estimate a general stress/wellbeing risk level based on patterns in the data.
+  </p>
+
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+
+  <form action="/predict" method="POST" class="survey-form">
+    <div class="grid">
+      <label>Age
+        <input type="number" name="age" min="10" max="100" step="1" value="20" required />
+      </label>
+      <label>Sleep (hours/night)
+        <input type="number" name="sleep_hours" min="0" max="14" step="0.1" value="6.5" required />
+      </label>
+      <label>Screen time (hours/day)
+        <input type="number" name="screen_time_hours" min="0" max="20" step="0.1" value="6" required />
+      </label>
+      <label>Physical activity (hours/day)
+        <input type="number" name="physical_activity_hours" min="0" max="10" step="0.1" value="0.5" required />
+      </label>
+      <label>Social interaction (0-10)
+        <input type="number" name="social_interaction_score" min="0" max="10" step="0.1" value="5" required />
+      </label>
+      <label>Work/study hours (per day)
+        <input type="number" name="work_study_hours" min="0" max="20" step="0.1" value="7" required />
+      </label>
+      <label>Self-rated mood (0-10)
+        <input type="number" name="self_rated_mood" min="0" max="10" step="0.1" value="6" required />
+      </label>
+      <label>Academic/work pressure (0-10)
+        <input type="number" name="academic_work_pressure" min="0" max="10" step="0.1" value="5" required />
+      </label>
+      <label>Financial stress (0-10)
+        <input type="number" name="financial_stress" min="0" max="10" step="0.1" value="4" required />
+      </label>
+      <label>Support system strength (0-10)
+        <input type="number" name="support_system_score" min="0" max="10" step="0.1" value="6" required />
+      </label>
+    </div>
+
+    <button type="submit">Check my wellbeing</button>
+  </form>
+</div>
+{% endblock %}
